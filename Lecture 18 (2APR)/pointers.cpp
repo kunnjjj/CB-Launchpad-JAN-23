@@ -21,6 +21,36 @@ void func3(int *arr)
 
 int main()
 {
+    int C[]={98,34,10,98,93,10,12,332,102,2234};
+    int *PTR=&C[3];
+    (*PTR)++;
+    // I
+    (*PTR)++;
+    // I
+    PTR++;
+    //I
+    (*PTR)=C[0] + 3;
+    // I
+    C[5]=(*(&C[0])) * (*(&(*PTR)));
+    // I
+    (*(&C[1]))=--(*PTR);
+    // I
+    (*(&C[8]))= (++(*PTR)) + (--C[4]);
+    // I
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     int x=10;
 
     cout<<"value of x: "<<x<<endl;
@@ -62,26 +92,29 @@ int main()
 
     int B[10]={15,17,19,20,12,15};
     int *ptr2=&B[0];
-
     (*ptr2)++;
     // idhar 1
     for(int i=0;i<6;i++) cout<<B[i]<<" "; cout<<endl;
-
     ptr2++;
     // idhar 2
     for(int i=0;i<6;i++) cout<<B[i]<<" "; cout<<endl;
     (*ptr2)--;
     // idhar 3
-    for(int i=0;i<6;i++) cout<<B[i]<<" ";cout<<endl;
+    for(int i=0;i<6;i++) cout<<B[i]<<" "; cout<<endl;
     ++ptr2;
     ++ptr2;
-    (*ptr)=(*ptr)*10;
+    for(int i=0;i<6;i++) cout<<B[i]<<" "; cout<<endl;
+    (*ptr2)=(*ptr2)*10;
     // idhar 4
-    for(int i=0;i<6;i++) cout<<B[i]<<" ";cout<<endl;
-
     // idhar 5
-    for(int i=0;i<6;i++) cout<<B[i]<<" ";cout<<endl;
-    (*ptr)--;
+    
+    for(int i=0;i<6;i++) cout<<B[i]<<" "; cout<<endl;
+    (*ptr2)--;
+    // idhar 6
+    
+    for(int i=0;i<6;i++) cout<<B[i]<<" "; cout<<endl;
+
+
 
 
 
