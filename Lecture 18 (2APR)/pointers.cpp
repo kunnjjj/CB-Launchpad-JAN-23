@@ -25,19 +25,28 @@ int main()
     int *PTR=&C[3];
     (*PTR)++;
     // I
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
     (*PTR)++;
     // I
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
     PTR++;
     //I
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
     (*PTR)=C[0] + 3;
     // I
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
+
     C[5]=(*(&C[0])) * (*(&(*PTR)));
     // I
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
+
     (*(&C[1]))=--(*PTR);
     // I
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
     (*(&C[8]))= (++(*PTR)) + (--C[4]);
     // I
-
+    for(int i=0;i<10;i++) cout<<C[i]<<" "; cout<<endl;
+    
 
 
 
