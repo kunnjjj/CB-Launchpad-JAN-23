@@ -47,8 +47,10 @@ void printBoard(int board[10][10],int N)
         }
         cout<<endl;
     }
+    cout<<"----------------"<<endl;
 }
 
+int cnt=0;
 bool nQueen(int board[10][10],int row,int N)
 {
     // can i place queen on the given row and all further row
@@ -56,9 +58,9 @@ bool nQueen(int board[10][10],int row,int N)
     // false : i was not able to place queens
     if(row==N)
     {
-
+        cnt++;
         printBoard(board,N);
-        return true;
+        return false;
     }
 
     for(int col=0;col<N;col++)
@@ -71,7 +73,7 @@ bool nQueen(int board[10][10],int row,int N)
             {
                 return true;
             }
-            board[row][col]=0;
+            board[row][col]=0; // BACKTRACK
         }   
     }
 
@@ -81,8 +83,11 @@ bool nQueen(int board[10][10],int row,int N)
 int main()
 {
 
+    cout<<"edited"<<endl;
     int board[10][10]={0};
-    nQueen(board,0,4);
+    int N; cin>>N;
+    nQueen(board,0,N);
+    cout<<cnt<<endl;
 
     return 0;
 }
