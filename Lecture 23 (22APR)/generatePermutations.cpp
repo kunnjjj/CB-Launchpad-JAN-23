@@ -13,6 +13,7 @@ void generate_permutations(string &input,int pos)
     {
         swap(input[pos],input[j]);
         generate_permutations(input,pos+1);
+        swap(input[pos],input[j]);        
     }
 }
 
