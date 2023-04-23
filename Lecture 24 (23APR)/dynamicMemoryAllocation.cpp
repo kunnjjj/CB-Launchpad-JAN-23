@@ -15,6 +15,13 @@ int *getArray()
 int main()
 {
 
+    int C[]={10,12,10,13};
+
+    cout<<C[2]<<endl;
+    cout<<*(C+2)<<endl;
+    int *p=&C[0]; // int* p= C;
+    cout<<p[2]<<endl; 
+
     int *A=getArray();
 
     for(int i=0;i<5;i++)
@@ -26,7 +33,6 @@ int main()
 
     // int B[n];
     int *B=new int[n];
-    
 
 
     // int A[5];
@@ -36,15 +42,31 @@ int main()
 
     // func();
 
-    // int *ptr=new int;
+    int *ptr=new int;
 
-    // float* ptr2=new float;
+    float* ptr2=new float;
 
-    // int *ptr3=new int [5];
+    int *ptr3=new int [5];
 
-    // double* ptr4=new double [3];
+    double* ptr4=new double [3];
 
-    // int *B=new int[5];
+    int *Z=new int[5];
+
+    delete(ptr);
+    delete(ptr2);
+    delete(ptr3);
+    delete[](ptr4);
+    delete[](Z);
+    delete[](A);
+    delete[](B);
+
+    cout<<endl;
+
+    // for(int i=0;i<5;i++) cout<<A[i]<<" ";
+    // cout<<endl;
+
+    int *t=new int [5];
+    t=new int[10]; // WE DO NOT HAVE ADDRESS OF OLD 5 buckets, but they exist in memory, this is called memory leak
 
     return 0;
 }
