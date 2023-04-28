@@ -24,7 +24,7 @@ int main()
                 i++;
                 j--;
             }
-            else if(A[i] + A[j] > target)
+            else if(A[i] + A[j] > newTarget)
             {
                 j--;
             }
