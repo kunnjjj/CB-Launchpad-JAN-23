@@ -12,11 +12,13 @@ class XYZ
         y=&x;
     }
 
-    // XYZ(XYZ &obj)
-    // {
-    //     x=obj.x;
-    //     y=obj.y;
-    // }
+    XYZ(XYZ &obj) // deep copy
+    {
+        x=obj.x;
+        
+        y=&x;
+    }
+
     void print()
     {
         cout<<"value of x: "<<x<<endl;
