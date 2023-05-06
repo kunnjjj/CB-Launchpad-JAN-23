@@ -5,27 +5,28 @@ using namespace std;
 
 class Car
 {   
-
-public:
-
     string color;
     int wheelSize;
     string modelNo;
     int len;
     int speed;
+public:
+
+
 
     Car()
     {
         cout<<"contructor invoked"<<endl;
     }
 
-    Car(int WHEELSIZE,string COLOR,int LEN,int SPEED)
+    Car(int WHEELSIZE,string COLOR,int LEN,int SPEED,string MODELNO)
     {
         cout<<"parameterised contructor"<<endl;
         wheelSize=WHEELSIZE;
         color=COLOR;
         len=LEN;
         speed=SPEED;
+        modelNo=MODELNO;
     }
 
     Car(Car &X)
@@ -35,6 +36,13 @@ public:
         color=X.color;
         len=X.len;
         speed=X.speed;
+        modelNo=X.modelNo;
+    }
+
+    ~Car()
+    {
+        cout<<"model: "<<modelNo<<endl;
+        cout<<"destructor invoked"<<endl;
     }
 
     void accelerate()
@@ -52,12 +60,17 @@ public:
         return color;
     }
 
+    void changeModel(string NEWMODEL)
+    {
+        modelNo=NEWMODEL;
+    }
+
 };
 
 int main()
 {
 
-    Car BMW(18,"Black",4300,0);
+    Car BMW(18,"Black",4300,0,"S3");
 
     // ObjectKaNaam.propertyName;
     // ObjectKaNaam.funcName();
@@ -78,6 +91,7 @@ int main()
     cout<<BMW.getColor()<<endl;
     cout<<Mercedes.getColor()<<endl;
 
+    Mercedes.changeModel("M3");
     
     int x=10;
     // int y=x;
