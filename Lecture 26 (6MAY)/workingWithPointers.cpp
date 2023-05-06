@@ -45,6 +45,9 @@ int main()
     ptr->x+=23;
     cout<<(ptr->x)<<endl;
 
+    node* ptr2=new node(87);
+    cout<<ptr2->d<<endl;
+    cout<<(*ptr2).d<<endl;
 
 
     return 0;
