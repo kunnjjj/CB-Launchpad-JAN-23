@@ -1,0 +1,58 @@
+// https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
+// HW: O(N) with constant space
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    int inf=3e8; // TODO
+    pair<int,int> helper(TreeNode* root)
+    {
+        if(root==NULL)
+        {
+            pair<int,int> p={-inf,-inf};
+            return p;
+        }
+
+        pair<int,int> leftPair=helper(root->left);
+        pair<int,int> rightPair=helper(root->right);
+
+        pair<int,int> p;
+        //p.first denotes max sum including root and at most one of its child
+        p.first=max({
+            leftPair.first + root->val, // include left child + root
+            rightPair.first + root->val, // include right child + root
+            root->val // only root
+        });
+
+        int maxPathSumIncludingRoot=max({
+            leftPair.first + root->val,  // include left child + root
+            rightPair.first + root->val, // include right child + root
+            leftPair.first + rightPair.first + root->val, // include both children + root
+            root->val // only root
+        });
+
+        // p.second denotes max sum inside subtree (may or maynot include root)
+        // max sum may be found in left subtree or in right subtree or may be made with root
+        p.second=max({
+            leftPair.second,
+            rightPair.second,
+            maxPathSumIncludingRoot
+        });
+
+        return p;
+    }
+
+    int maxPathSum(TreeNode* root) {
+        return helper(root).second;
+    }
+};
